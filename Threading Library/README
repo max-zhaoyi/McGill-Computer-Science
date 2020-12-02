@@ -1,0 +1,15 @@
+
+after make or make run use:
+
+ gcc -o test test.c a1_lib.o sut.o -pthread
+
+
+-Code will hang if a 16th thread gets created; assumption that we will only be creating a maximum of 15 threads.
+-sut_read not implemented: always return string "Read has not been implemented!"
+
+-For I/O, only one command can be run per user thread, and only the last I/O command is run properly (ex. when called sut_open followed by sut_close, only sut_close will run). It seems like my queue is overwriting itself
+
+-Feel free to use the #DEBUG# print statements around my i-exec queue pop to see what I did wrong..
+
+-Can you please go into my i-exec and check if my functions (commented in CAPS) are implemented well there? for partials marks?
+
